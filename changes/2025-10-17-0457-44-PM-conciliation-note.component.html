@@ -1,0 +1,51 @@
+<section class="content-main">
+  <gtf-header-of-component [headerData]="dataForTable.pageHeader">
+  </gtf-header-of-component>
+
+  <gtf-skeleton-card>
+    <gtf-page-error>
+      <div>
+        <gtf-skeleton-card-header>
+          <div class="container" style="margin: 0">
+            <form class="row">
+              <div class="col-lg-2 col-md-2 col-sm-2 u-padding--none">
+                <gtf-select-field-form
+                  [label]="'Sistema'"
+                  [id]="'billingSystemId'"
+                  [valueSelect]="'id'"
+                  [route]="'systemSelect'"
+                  [controlForm]="controlValue.billingSystemId"
+                >
+                </gtf-select-field-form>
+              </div>
+
+              <div class="col-lg-2 col-md-2 col-sm-2 u-padding--none">
+                <gtf-input-field-form
+                  [label]="'Número fiscal'"
+                  [id]="'fiscalNumber'"
+                  [pattern]="'number'"
+                  [controlForm]="controlValue.fiscalNumber"
+                >
+                </gtf-input-field-form>
+              </div>
+
+              <div
+                class="col-lg-4 col-md-4 col-sm-4 u-padding--none"
+                style="display: flex; align-items: flex-end"
+              >
+                <gtf-button-actions
+                  [btnType]="dataForTable.buttonsAction[1]"
+                  iconBtnNew=""
+                  textBtnNew="Buscar"
+                  (btnClick)="validateForm()"
+                >
+                </gtf-button-actions>
+              </div>
+            </form>
+          </div>
+        </gtf-skeleton-card-header>
+
+        <gtf-skeleton-loader
+          *ngIf="dataForTable.loading; else showTable"
+          [header]="dataForTable.tableHeader"
+... (truncated for brevity)
